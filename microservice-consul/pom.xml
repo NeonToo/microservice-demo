@@ -9,30 +9,37 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+    <!--<parent>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-parent</artifactId>-->
+        <!--<version>2.0.1.RELEASE</version>-->
+        <!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    <!--</parent>-->
 
-    <groupId>com.microservice.demo</groupId>
+    <!--<properties>-->
+        <!--<java.version>1.8</java.version>-->
+        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+        <!--<project.encoding>UTF-8</project.encoding>-->
+        <!--<spring-cloud.version>Finchley.SR2</spring-cloud.version>-->
+    <!--</properties>-->
+
+    <!--<groupId>com.microservice.demo</groupId>-->
     <artifactId>microservice-consul</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <name>microservice-consul</name>
     <description>Consul Demo for Service Discovery</description>
 
-    <!--<properties>-->
-        <!--<java.version>1.8</java.version>-->
-        <!--<spring-cloud.version>Greenwich.SR1</spring-cloud.version>-->
-    <!--</properties>-->
-
     <dependencies>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-config-server</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <artifactId>spring-cloud-starter-consul-all</artifactId>
+            <!--<artifactId>spring-cloud-starter-consul-discovery</artifactId>-->
         </dependency>
-
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-test</artifactId>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
     </dependencies>
 
     <!--<dependencyManagement>-->
