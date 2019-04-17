@@ -15,7 +15,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.1.RELEASE</version>
+        <version>2.0.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -25,6 +25,13 @@
         <project.encoding>UTF-8</project.encoding>
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
     </properties>
+
+    <!--
+    The spring-boot version must be 2.0.6 to compile with
+    spring-cloud version Finchley.SR2,
+    or the @EnableDiscoveryClient cannot resolve
+    see Release Trains https://spring.io/projects/spring-cloud
+    -->
 
     <dependencies>
         <!--spring-->
