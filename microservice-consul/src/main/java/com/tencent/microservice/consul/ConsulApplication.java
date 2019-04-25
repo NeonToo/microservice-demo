@@ -1,4 +1,4 @@
-package com.microservice.consul;
+package com.tencent.microservice.consul;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

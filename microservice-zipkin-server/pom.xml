@@ -10,21 +10,15 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>microservice-consul</artifactId>
+    <artifactId>microservice-zipkin-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
-    <name>microservice-consul</name>
-    <description>Consul Demo for Service Discovery</description>
+    <name>microservice-zipkin-server</name>
+    <description>Demo project of Spring Cloud</description>
 
     <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-config-server</artifactId>-->
-        <!--</dependency>-->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-consul-all</artifactId>
-            <!--<artifactId>spring-cloud-starter-consul-discovery</artifactId>-->
+            <groupId>io.zipkin.zipkin2</groupId>
+            <artifactId>zipkin</artifactId>
         </dependency>
     </dependencies>
 

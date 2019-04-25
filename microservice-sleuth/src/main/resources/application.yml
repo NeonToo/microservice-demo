@@ -1,0 +1,11 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: microservice-demo
+
+logging:
+  level:
+    root: ERROR
+#    org.springframework.cloud.sleuth: INFO
