@@ -12,6 +12,8 @@
 
     <artifactId>microservice-zipkin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
     <name>microservice-zipkin</name>
     <description>Demo project of Spring Cloud</description>
 

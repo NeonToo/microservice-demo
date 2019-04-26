@@ -11,16 +11,17 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableAutoConfiguration
 @RestController
-@CrossOrigin
+@CrossOrigin  // for cross-origin JS
 public class FrontendApplication {
 
-    private static final String BASE_URL = System.getProperty("spring.baseUrl", "http://localhost:9000");
+    private static final String BASE_URL = "http://localhost:9000";
 
     @Autowired
     private RestTemplate restTemplate;
 
     @GetMapping("/")
     public String callBackend() {
+        System.out.print(BASE_URL + "/api");
         return restTemplate.getForObject(BASE_URL + "/api", String.class);
     }
 
@@ -30,7 +31,7 @@ public class FrontendApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(FrontendApplication.class, "--spring.application.name=java-frontend", "--server-port=8081");
+        SpringApplication.run(FrontendApplication.class, "--spring.application.name=java-frontend");
     }
 
 }
