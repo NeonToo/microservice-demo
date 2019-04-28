@@ -5,15 +5,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
-
 @SpringBootApplication
 @RestController
 public class BackendApplication {
 
-    @GetMapping("/api")
-    public String printDate() {
-        return "From Java Backend Service: " + new Date().toString();
+    @GetMapping("/jv1")
+    public String printService1() {
+        return "--- Java Backend Service1 ---";
+    }
+
+    @GetMapping("/jv2")
+    public String printService2() {
+        return "*** Java Backend Service2 *** calls " + printService1();
     }
 
     public static void main(String[] args) {
