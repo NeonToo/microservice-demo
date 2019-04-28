@@ -13,7 +13,7 @@ public class BackendApplication {
 
     @GetMapping("/api")
     public String printDate() {
-        return new Date().toString();
+        return "From Java Backend Service: " + new Date().toString();
     }
 
     public static void main(String[] args) {

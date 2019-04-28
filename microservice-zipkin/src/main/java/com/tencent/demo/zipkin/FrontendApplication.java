@@ -22,7 +22,7 @@ public class FrontendApplication {
     @GetMapping("/")
     public String callBackend() {
         System.out.print(BASE_URL + "/api");
-        return restTemplate.getForObject(BASE_URL + "/api", String.class);
+        return "From Java Frontend Service: " + restTemplate.getForObject(BASE_URL + "/api", String.class);
     }
 
     @Bean
