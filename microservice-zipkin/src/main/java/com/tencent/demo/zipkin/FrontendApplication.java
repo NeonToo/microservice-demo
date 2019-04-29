@@ -1,8 +1,11 @@
 package com.tencent.demo.zipkin;
 
+import brave.http.HttpTracing;
+import brave.spring.web.TracingClientHttpRequestInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,8 +35,12 @@ public class FrontendApplication {
     }
 
     @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
+    public RestTemplate restTemplate(HttpTracing httpTracing) {
+//        return new RestTemplate();
+
+        return new RestTemplateBuilder()
+                .additionalInterceptors(TracingClientHttpRequestInterceptor.create(httpTracing))
+                .build();
     }
 
     public static void main(String[] args) {
