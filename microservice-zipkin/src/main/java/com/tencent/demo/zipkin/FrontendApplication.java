@@ -21,8 +21,14 @@ public class FrontendApplication {
 
     @GetMapping("/")
     public String callBackend() {
-        System.out.print(BASE_URL + "/api");
-        return "Java Frontend Service: " + restTemplate.getForObject(BASE_URL + "/jv2", String.class);
+        return "Java Service_A calls: " + restTemplate.getForObject(BASE_URL + "/services/b", String.class);
+    }
+
+    @GetMapping("/services/d")
+    public String callServiceC() {
+        String resFromD = restTemplate.getForObject("http://localhost:9002/services/d", String.class);
+
+        return "Java Service_A calls: " + resFromD;
     }
 
     @Bean

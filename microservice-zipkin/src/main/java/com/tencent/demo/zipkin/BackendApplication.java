@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BackendApplication {
 
-    @GetMapping("/jv1")
-    public String printService1() {
-        return "--- Java Backend Service1 ---";
+    @GetMapping("/services/b")
+    public String printServiceB() {
+        return "--- Java Service_B ---";
     }
 
-    @GetMapping("/jv2")
-    public String printService2() {
-        return "*** Java Backend Service2 *** calls " + printService1();
+    @GetMapping("/services/e")
+    public String printServiceE() {
+        return "--- Java Service_E ---";
     }
 
     public static void main(String[] args) {
