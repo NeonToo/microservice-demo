@@ -1,7 +1,5 @@
 package com.tencent.demo.zipkin;
 
-import brave.http.HttpTracing;
-import brave.spring.web.TracingClientHttpRequestInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -15,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableAutoConfiguration
 @RestController
 @CrossOrigin  // for cross-origin JS
-public class FrontendApplication {
+public class ServiceAApplication {
 
     private static final String BASE_URL = "http://localhost:9000";
 
@@ -23,28 +21,43 @@ public class FrontendApplication {
     private RestTemplate restTemplate;
 
     @GetMapping("/")
-    public String callBackend() {
+    public String callServiceA() {
         return "Java Service_A calls: " + restTemplate.getForObject(BASE_URL + "/services/b", String.class);
     }
 
-    @GetMapping("/services/d")
+    @GetMapping("/services/c")
     public String callServiceC() {
+        String resFromC = restTemplate.getForObject("http://localhost:9001/services/c", String.class);
+
+        return "Java Service_A calls: " + resFromC;
+    }
+
+    @GetMapping("/services/d")
+    public String callServiceD() {
         String resFromD = restTemplate.getForObject("http://localhost:9002/services/d", String.class);
 
         return "Java Service_A calls: " + resFromD;
     }
 
     @Bean
-    public RestTemplate restTemplate(HttpTracing httpTracing) {
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.build();
 //        return new RestTemplate();
 
-        return new RestTemplateBuilder()
-                .additionalInterceptors(TracingClientHttpRequestInterceptor.create(httpTracing))
-                .build();
+//        return new ZipkinRestTemplateCustomizer() {
+//
+//            @Override
+//            public void customize(RestTemplate restTemplate) {
+//
+//            }
+//            new RestTemplateBuilder()
+//                    .additionalInterceptors(TracingClientHttpRequestInterceptor.create(httpTracing))
+//                    .build();
+//        };
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(FrontendApplication.class, "--spring.application.name=java-frontend");
+        SpringApplication.run(ServiceAApplication.class, "--spring.application.name=java-service_A");
     }
 
 }
