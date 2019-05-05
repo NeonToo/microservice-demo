@@ -23,7 +23,7 @@ public class ServiceBApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceBApplication.class, "--spring.application.name=java-service", "--server.port=9000");
+        SpringApplication.run(ServiceBApplication.class, "--spring.application.name=java-service_B", "--server.port=9000");
     }
 
 }
