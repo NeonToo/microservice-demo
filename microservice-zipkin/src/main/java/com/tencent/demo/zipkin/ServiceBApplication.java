@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class ServiceBApplication {
 
     @GetMapping("/services/b")
-    @SpanName("java-span-B")
     public String printServiceB() {
         return "--- Java Service_B ---";
     }
 
-    @GetMapping("/services/e")
-    @SpanName("java-span-E")
+    @GetMapping("/services/b/inner")
+//    @SpanName("java-span-E")
     public String printServiceE() {
-        return "--- Java Service_E ---";
+        return "--- Java Service_B INNER Call ---";
     }
 
     public static void main(String[] args) {
