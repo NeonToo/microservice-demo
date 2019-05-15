@@ -22,7 +22,7 @@ public class ServiceAApplication {
 
     @GetMapping("/")
     public String callServiceA() {
-        return "Java Service_A calls: " + restTemplate.getForObject(BASE_URL + "/services/b", String.class);
+        return "*** Java Service_A *** calls: " + restTemplate.getForObject(BASE_URL + "/services/b", String.class);
     }
 
     @GetMapping("/services/c")

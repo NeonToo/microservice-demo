@@ -12,13 +12,13 @@ public class ServiceBApplication {
 
     @GetMapping("/services/b")
     public String printServiceB() {
-        return "--- Java Service_B ---";
+        return "*** Java Service_B ***";
     }
 
     @GetMapping("/services/b/inner")
 //    @SpanName("java-span-E")
     public String printServiceE() {
-        return "--- Java Service_B INNER Call ---";
+        return "*** Java Service_B INNER Call ***";
     }
 
     public static void main(String[] args) {
