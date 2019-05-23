@@ -27,14 +27,14 @@ public class ServiceAApplication {
 
     @GetMapping("/services/c")
     public String callServiceC() {
-        String resFromC = restTemplate.getForObject("http://localhost:9001/services/c", String.class);
+        String resFromC = restTemplate.getForObject("http://localhost:8081/", String.class);
 
         return "*** Java Service_A *** calls: " + resFromC;
     }
 
     @GetMapping("/services/d")
     public String callServiceD() {
-        String resFromD = restTemplate.getForObject("http://localhost:9002/services/d", String.class);
+        String resFromD = restTemplate.getForObject("http://localhost:9001/services/d", String.class);
 
         return "*** Java Service_A *** calls: " + resFromD;
     }
